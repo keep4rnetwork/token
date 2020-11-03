@@ -2,3 +2,4 @@ truffle-config.js
 ignore/*
 build/*
 node_modules/*
+.DS_Store
