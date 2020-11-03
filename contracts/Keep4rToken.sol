@@ -1,4 +1,24 @@
-/* Keep4r – kp4r.network */
+/* 
+    Keep4r – kp4r.network 
+    https://etherscan.io/token/0xa89ac6e529acf391cfbbd377f3ac9d93eae9664e
+*/
+
+/*
+    Keep4r token is based on YFI's token code.
+
+    Please note:
+
+    - Governance was active at launch but has been transfered to
+    the NoOwner contract, meaning no further governance transfers and assigning minters
+    is disabled forever.
+
+    Tx Transfering to NoOwner contract:
+    https://etherscan.io/tx/0x3cc23e7191d062b54daa688920d14a30ee0bde7cdc5ff3b02bce284068be4b97
+
+    Tx NoOwnerContract:
+    https://etherscan.io/address/0x9b7Eb4bA9f5BeDb087f58f77b11b169C39BBf6EA#code
+
+*/
 
 pragma solidity ^0.6.6;
 
@@ -226,15 +246,15 @@ contract Keep4rToken is ERC20, ERC20Detailed {
         _burn(msg.sender, amount);
     }
 
-    /** @notice safely begin the governance transfer process. The new governance
-      * address, must accept the transfer. */
+    /** IMPORTANT: Governance was disabled, by sending governance to the NoOwner contract */
     function transferGovernance(address _governance) public {
         require(msg.sender == governance, "!governance");
         governancePending = _governance;
     }
 
     /** @notice to complete the governance transfer process new governance
-     * address, must accept the transfer. */
+     * address, must accept the transfer. 
+     * IMPORTANT: NoOwner Contract accepted governance. */
     function acceptGovernance() public {
         require(msg.sender == governancePending, "!governancePending");
         governance = governancePending;
