@@ -1,0 +1,4 @@
+truffle-config.js
+ignore/*
+build/*
+node_modules/*
